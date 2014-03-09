@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="Weather">
+	<head>
+		<title>Simple Weather App</title>
+		<link rel="stylesheet" href="lib\bootstrap-3.1.1-dist\css\bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="css\styles.css" type="text/css" />
+		<script type="text/javascript" src="lib\angular.min.js"></script>
+		<script type="text/javascript" src="lib\angular-resource.min.js"></script>
+		<script type="text/javascript" src="lib\ui-bootstrap-tpls-0.10.0.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+		<script type="text/javascript" src="js\weather.js"></script>
+	</head>
+	<body class="container">
+		<div ng-controller="WeatherCtrl">
+			<h1 class="text-center"><img src="img\light\png\28.png" width="90" height="53" alt="W3C" />Simple Weather</h1>
+			<hr>
+			<form class="form-horizontal">
+				<div class="row">
+					<div class="form-group">
+						<label for="zipInput" class="col-sm-offset-2 col-sm-2 control-label">Zip Code</label>
+						<div class="col-sm-3">
+							<input type="text" ng-model="searchZip" class="form-control" id="zipInput" ng-model="zip">
+						</div>
+						<button type="submit" ng-click="getWeather()" class="col-sm-1 btn btn-default">Go!</button>
+					</div>
+				</div>
+				<p class="text-center">Weather information for {{locationLookupResult}}</p>
+				<div class="col-sm-offset-3 col-sm-6">
+					<accordion>
+						<accordion-group class="accordionItem" ng-repeat="day in weatherLookupResult.daily.data" heading="{{day.time * 1000 | date:'fullDate'}}">
+							  <p>{{day.summary}}</p>
+							  <p>Low: {{day.temperatureMin}}&deg;F</p>
+							  <p>High: {{day.temperatureMax}}&deg;F</p>
+						</accordion-group>
+					</accordion>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

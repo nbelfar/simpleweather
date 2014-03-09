@@ -1,0 +1,22 @@
+.nav, .pagination, .carousel, .panel-title a { 
+	cursor: pointer; 
+	}
+
+body {
+	color: #d3d3d3;
+	background-image:url("../img/grey_wash_wall.png");
+}
+
+.accordionItem {
+	color: black;
+	border-color: #939393;
+}
+
+.accordionItem .panel-heading {
+	background-color: #7e7e7e;
+}
+
+.accordionItem .panel-body {
+	background-color: #939393;
+	border-color: #939393;
+} 
