@@ -21,10 +21,11 @@ function WeatherCtrl($scope, $resource) {
 				  $scope.weatherLookupResult = $resource('https://api.forecast.io/forecast/f1199b0ddb52ea5a28158b1425d24d80/' + latLng.lat + ',' + latLng.lng,
 					{callback:'JSON_CALLBACK'},
 					{get:{method:'JSONP'}}).get();
-					var x = 'blah';
+					var debugLine;
 			}
 			else {
-				alert('Geocode was not successful for the following reason: ' + status);
+				alert('No results found. Try your search again.');
+				console.log('Geocode was not successful for the following reason: ' + status);
 			}
 		});		
 	};
