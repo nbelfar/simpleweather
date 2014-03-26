@@ -1,10 +1,16 @@
-.nav, .pagination, .carousel, .panel-title a { 
-	cursor: pointer; 
-	}
 
 body {
 	color: #d3d3d3;
 	background-image:url("../img/grey_wash_wall.png");
+}
+
+#headerImg {
+	width: 90px;
+	height: 53px;
+}
+
+.nav, .pagination, .carousel, .panel-title a { 
+	cursor: pointer; 
 }
 
 .accordionItem {
