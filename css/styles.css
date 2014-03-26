@@ -20,3 +20,11 @@ body {
 	background-color: #939393;
 	border-color: #939393;
 } 
+
+.invisible {
+	display: none;
+}
+
+.visible {
+	display: block;
+}

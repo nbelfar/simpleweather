@@ -6,10 +6,12 @@ function WeatherCtrl($scope, $resource) {
 		lng: ''
 	};
 	var stringLoc = ''
-	$scope.locationLookupResult = "...";
-	$scope.locationLookup = function() {
+	$scope.locationLookupResult = '...';
+	$scope.alert = {type: 'danger', msg: 'Invalid zip code. Please try a different one.'};
+	$scope.isShown = false;
+	/*$scope.locationLookup = function() {
 		
-	};
+	};*/
 
 	$scope.getWeather = function() {
 		var geocoder = new google.maps.Geocoder();
@@ -24,10 +26,17 @@ function WeatherCtrl($scope, $resource) {
 					var debugLine;
 			}
 			else {
-				alert('No results found. Try your search again.');
+				//alert('No results found. Try your search again.');
+				$scope.isShown = true;
+				$scope.weatherLookupResult = {};
+				$scope.locationLookupResult = '...';
 				console.log('Geocode was not successful for the following reason: ' + status);
 			}
 		});		
+	};
+	
+	$scope.closeAlert = function() {
+		$scope.isShown = false;
 	};
 
 }

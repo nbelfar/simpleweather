@@ -17,6 +17,7 @@
 			<form class="form-horizontal">
 				<div class="row">
 					<div class="form-group">
+						<p class="text-center">Enter a zipcode below to view its predicted weather for the week</p>
 						<label for="zipInput" class="col-sm-offset-2 col-sm-2 control-label">Zip Code</label>
 						<div class="col-sm-3">
 							<input type="text" ng-model="searchZip" class="form-control" id="zipInput" ng-model="zip">
@@ -26,6 +27,7 @@
 				</div>
 				<p class="text-center">Weather information for {{locationLookupResult}}</p>
 				<div class="col-sm-offset-3 col-sm-6">
+				<alert ng-show="isShown" ng-model="alert" type="alert.type" close="closeAlert()">{{alert.msg}}</alert>
 					<accordion>
 						<accordion-group class="accordionItem" ng-repeat="day in weatherLookupResult.daily.data" heading="{{day.time * 1000 | date:'fullDate'}}">
 							  <p>{{day.summary}}</p>
